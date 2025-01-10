@@ -167,6 +167,7 @@ function stringIdGenerator() {
     }
     return uniqueId;
 }
+
 const id = stringIdGenerator();
 console.log(id);
 
@@ -191,13 +192,19 @@ console.log(lastArrayEntry);
 
 /* Opdracht 10 */
 function printNumbers() {
-
+    for (let i = 1; i < 101; i++) {
+        if ((i % 5 === 0) && (i % 3 === 0)) {
+            console.log("FizzBuzz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        } else if (i % 3 === 0){
+            console.log("Fizz");
+        } else console.log(i);
+    }
 }
 
-for (let i = 0; i < 100; i++) {
-    if (i % 3 === 0)
-    console.log(i);
-}
+printNumbers();
+
 
 // Schrijf een functie die geen parameters verwacht en de getallen 1 tot 100 print.
 // Voor getallen die deelbaar zijn door 3 print je "Fizz" in plaats van het getal.
@@ -244,3 +251,19 @@ for (let i = 0; i < 100; i++) {
 // ["Piet", "Henk"] geeft "Hoi Piet en Henk!"
 // ["A", "B", "C", "D", "E", "F"] geeft "Hoi A, B, C, D, E en F!"
 
+function generateGreeting(arrayStrings) {
+if (arrayStrings === 0) {
+    return "Hoi!"
+}
+
+if (arrayStrings === 1) {
+    return "Hoi " + arrayStrings[0] + "!";
+}
+
+const lastName = arrayStrings[arrayStrings.length - 1];
+const otherNames = arrayStrings.slice(0, arrayStrings.length - 1).join(", ");
+
+return "Hoi " + otherNames + " en " + lastName + "!";
+}
+const generalGreeting = generateGreeting(["Terri", "Sanne"]);
+console.log(generalGreeting);
